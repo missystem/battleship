@@ -1,33 +1,14 @@
-/*******************************************/
-/*** DO NOT CHANGE ANYTHING IN THIS FILE ***/
-/*******************************************/
-
 #include "player.hxx"
-/// Three possible values for the "Player" class:
-///     - Dark, light, and neither, i.e....
+
 Player
 other_player(Player player)
 {
     switch (player) {
-    case Player::light:
-        return Player::dark;
-    case Player::dark:
-        return Player::light;
+    case Player::p1:
+        return Player::p2;
+    case Player::p2:
+        return Player::p1;
     default:
         return player;
     }
 }
-
-std::ostream&
-operator<<(std::ostream& os, Player p)
-{
-    switch (p) {
-    case Player::light:
-        return os << "L";
-    case Player::dark:
-        return os << "D";
-    default:
-        return os << "_";
-    }
-}
-

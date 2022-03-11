@@ -44,8 +44,12 @@ private:
     //
 
     Dimensions dims_;
-    Position_set light_;
-    Position_set dark_;
+    Position_set p1_ships;
+    Position_set p2_ships;
+    Position_set p1_hits;
+    Position_set p2_hits;
+    Position_set p1_misses;
+    Position_set p2_misses;
     // INVARIANT: (light_ & dark_).empty()
 
 public:
@@ -66,7 +70,7 @@ public:
     Dimensions dimensions() const;
 
     /// Returns whether the given position is in bounds.
-    bool good_position(Position) const;
+    bool good_position(Position, Player) const;
 
     /// Returns the `Player` stored at `pos`.
     ///
@@ -164,7 +168,7 @@ private:
 
     Player get_(Position where) const;
     void set_(Position where, Player who);
-    void bounds_check_(Position where) const;
+    void bounds_check_(Position where, Player) const;
 
 #ifdef CS211_TESTING
     // When this class is compiled for testing, members of a struct named

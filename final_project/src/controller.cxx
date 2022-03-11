@@ -26,16 +26,18 @@ Controller::initial_window_dimensions() const
 void
 Controller::on_mouse_down(ge211::Mouse_button, ge211::Posn<int> physical_pos)
 {
-    ge211::Posn<int> board_pos = view_.screen_to_board(physical_pos);
-
-    if (model_.find_valid_move(board_pos))
-    {
-        model_.play_move(board_pos);
-    }
+    // ge211::Posn<int> board_pos = view_.screen_to_board(physical_pos);
+    //
+    // if (model_.find_valid_move(board_pos))
+    // {
+    //     model_.play_move(board_pos);
+    // }
 }
 
 void
 Controller::on_mouse_move(ge211::Posn<int> physical_move)
 {
-    mouse_position = view_.screen_to_board(physical_move);
+    // mouse_position = view_.screen_to_board(physical_move);
 }
+
+

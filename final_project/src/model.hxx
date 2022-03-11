@@ -1,9 +1,9 @@
 #pragma once
-
+#include "board.hxx"
 #include "player.hxx"
 #include "game_state.hxx"
 #include "ship.hxx"
-#include "board.hxx"
+
 
 #include <ge211.hxx>
 
@@ -17,6 +17,7 @@ public:
 
     /// Model rectangles will use `int` coordinates, as board rectangles do.
     using Rectangle = Board::Rectangle;
+    explicit Model(int size = 20);
     Model(int width, int height);
 
     Rectangle board() const;
