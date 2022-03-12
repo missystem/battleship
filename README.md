@@ -13,15 +13,17 @@
 * place the ships (grey)
 * random vertical and horizontal (1 / 0)
 
-randomized blocks -> vertical/horizontal  
-(0,0) -> (9,9)  
-same color for ships and board
-2 players
-who 
 
-position_set
-board
-function to place ships
-function to switch players
-function to do hits/misses
-16 hits for any player -> this player wins
+## two players - computer to place ships
+* randomized blocks (position of ships) -> vertical/horizontal  
+* (0,0) -> (9,9)  
+* same color for ships and board
+* 2 players
+
+
+* position_set
+* board
+* function to place ships
+* function to switch players
+* function to do hits/misses
+* 16 hits for any player -> this player wins
