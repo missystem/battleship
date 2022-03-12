@@ -10,12 +10,12 @@ using namespace ge211;
 Board::Board(Dimensions dims)
         : dims_(dims)
 {
-    if (dims_.width < 2 || dims_.height < 2) {
+    if (dims_.width < 10 || dims_.height < 20) {
         throw Client_logic_error("Board::Board: dims too small");
     }
 
-    if (dims_.width > Position_set::coord_limit ||
-        dims_.height > Position_set::coord_limit) {
+    if (dims_.width > 10 ||
+        dims_.height > 20) {
         throw Client_logic_error("Board::Board: dims too large");
     }
 }
@@ -27,16 +27,24 @@ Board::dimensions() const
 }
 
 bool
-Board::good_position(Position pos) const
+Board::good_position(Position pos, Player player) const
 {
-    return 0 <= pos.x && pos.x < dims_.width &&
-           0 <= pos.y && pos.y < dims_.height;
+    if (player == Player::p1){
+        return 0 <= pos.x && pos.x < 10 &&
+               10 <= pos.y && pos.y < 20;
+    }
+    else if (player == Player::p2){
+        return 0 <= pos.x && pos.x < 10 &&
+               0 <= pos.y && pos.y < 10;
+    }
+    return false;
 }
 
 Player
 Board::operator[](Position pos) const
 {
-    bounds_check_(pos);
+
+    bounds_check_(pos, other_player());
     return get_(pos);
 }
 
@@ -51,13 +59,13 @@ size_t
 Board::count_player(Player player) const
 {
     switch (player) {
-    case Player::light:
-        return light_.size();
-    case Player::dark:
-        return dark_.size();
+    case Player::p1:
+        return p1_hits.size();
+    case Player::p2:
+        return p2_hits.size();
     default:
         return dims_.width * dims_.height -
-               light_.size() - dark_.size();
+               p1_hits.size() - p2_hits.size();
     }
 }
 
@@ -98,70 +106,70 @@ Board::all_positions() const
     return Rectangle::from_top_left(the_origin, dims_);
 }
 
-bool
-operator==(Board const& b1, Board const& b2)
-{
-    return b1.dims_ == b2.dims_ &&
-           b1.light_ == b2.light_ &&
-           b1.dark_ == b2.dark_;
-}
+// bool
+// operator==(Board const& b1, Board const& b2)
+// {
+//     return b1.dims_ == b2.dims_ &&
+//            b1.light_ == b2.light_ &&
+//            b1.dark_ == b2.dark_;
+// }
 
 Player
 Board::get_(Position pos) const
 {
-    if (dark_[pos]) {
-        return Player::dark;
-    } else if (light_[pos]) {
-        return Player::light;
+    if (p1_hits[pos]) {
+        return Player::p1;
+    } else if (p2_hits[pos]) {
+        return Player::p2;
     } else {
         return Player::neither;
     }
 }
 
-void
-Board::set_(Position pos, Player player)
-{
-    switch (player) {
-    case Player::dark:
-        dark_[pos] = true;
-        light_[pos] = false;
-        break;
-
-    case Player::light:
-        dark_[pos] = false;
-        light_[pos] = true;
-        break;
-
-    default:
-        dark_[pos] = false;
-        light_[pos] = false;
-    }
-}
+// void
+// Board::set_(Position pos, Player player)
+// {
+//     switch (player) {
+//     case Player::dark:
+//         dark_[pos] = true;
+//         light_[pos] = false;
+//         break;
+//
+//     case Player::light:
+//         dark_[pos] = false;
+//         light_[pos] = true;
+//         break;
+//
+//     default:
+//         dark_[pos] = false;
+//         light_[pos] = false;
+//     }
+// }
 
 void
 Board::set_all(Position_set pos_set, Player player)
 {
     switch (player) {
-    case Player::light:
-        light_ |= pos_set;
-        dark_ &= ~pos_set;
+    case Player::p1:
+        p1_ships |= pos_set;
+        p2_ships &= ~pos_set;
         break;
 
-    case Player::dark:
-        dark_ |= pos_set;
-        light_ &= ~pos_set;
+    case Player::p2:
+        p2_ships |= pos_set;
+        p1_ships &= ~pos_set;
         break;
 
     default:
-        dark_ &= ~pos_set;
-        light_ &= ~pos_set;
+        p2_ships &= ~pos_set;
+        p1_ships &= ~pos_set;
     }
 }
 
 void
-Board::bounds_check_(Position pos) const
+Board::bounds_check_(Position pos, Player player) const
 {
-    if (!good_position(pos)) {
+    if (!good_position(pos, player)) {
         throw Client_logic_error("Board: position out of bounds");
     }
 }
