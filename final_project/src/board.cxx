@@ -14,8 +14,7 @@ Board::Board(Dimensions dims)
         throw Client_logic_error("Board::Board: dims too small");
     }
 
-    if (dims_.width > 10 ||
-        dims_.height > 20) {
+    if (dims_.width > 10 || dims_.height > 20) {
         throw Client_logic_error("Board::Board: dims too large");
     }
 }
