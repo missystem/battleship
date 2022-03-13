@@ -1,0 +1,44 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Performing C++ SOURCE FILE Test CXXFLAG_WCAST_ALIGN_STRICT_OKAY failed with the following output:
+Change Dir: /Users/yuhan/Documents/Northwestern/CS211/Battleship/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_ec779 && [1/2] Building CXX object CMakeFiles/cmTC_ec779.dir/src.cxx.o
+warning: unknown warning option '-Wcast-align=strict'; did you mean '-Wcast-align'? [-Wunknown-warning-option]
+1 warning generated.
+[2/2] Linking CXX executable cmTC_ec779
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXXFLAG_WERROR_BOOL_COMPARE_OKAY failed with the following output:
+Change Dir: /Users/yuhan/Documents/Northwestern/CS211/Battleship/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_a86d0 && [1/2] Building CXX object CMakeFiles/cmTC_a86d0.dir/src.cxx.o
+warning: unknown warning option '-Werror=bool-compare' [-Wunknown-warning-option]
+1 warning generated.
+[2/2] Linking CXX executable cmTC_a86d0
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXXFLAG_WERROR_BOOL_OPERATION_OKAY failed with the following output:
+Change Dir: /Users/yuhan/Documents/Northwestern/CS211/Battleship/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_7138c && [1/2] Building CXX object CMakeFiles/cmTC_7138c.dir/src.cxx.o
+warning: unknown warning option '-Werror=bool-operation'; did you mean '-Werror=bool-conversion'? [-Wunknown-warning-option]
+1 warning generated.
+[2/2] Linking CXX executable cmTC_7138c
+
+
+Source file was:
+int main() { return 0; }
