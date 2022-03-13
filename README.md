@@ -1,4 +1,7 @@
 # Game Name: Battleship 
+
+# User's Manual
+
   
 ### References:  
 hit.mp3  
