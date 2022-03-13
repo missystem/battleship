@@ -1,10 +1,6 @@
-# Game Name: Battleship
-
-## Authors:  
-Anish Bhardwaj    
-Yuhan Shi    
+# Game Name: Battleship 
   
-## References:  
+### References:  
 hit.mp3  
 miss.mp3  
 from https://www.adobe.com/products/audition/offers/AdobeAuditionDLCSFX.html?cq_ck=1407955238126&wcmmode=disabled  
@@ -15,4 +11,8 @@ from http://soundfxcenter.com/download-sound/mkd-chess-player-1-wins-sound-effec
 
 winner.mp3  
 from Apple Sound Effect - Background Music  
+  
+  
+## Contributors:  
+[Anish Bhardwaj](https://github.com/bhardwajanish)    |    [Yuhan Shi](https://github.com/missystem) 
 
