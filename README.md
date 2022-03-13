@@ -14,5 +14,5 @@ from Apple Sound Effect - Background Music
   
   
 ## Contributors:  
-[Anish Bhardwaj](https://github.com/bhardwajanish)    |    [Yuhan Shi](https://github.com/missystem) 
+[Anish Bhardwaj](https://github.com/bhardwajanish)    	| 	   [Yuhan Shi](https://github.com/missystem) 
 
